@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>pydeck</title>
+        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~8.5.*/dist/index.js'></script>
+    <style>
+    body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-map-container {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+#map {
+  pointer-events: none;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+#deckgl-overlay {
+  z-index: 2;
+  background: none;
+}
+
+#deck-map-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+    </style>
+  </head>
+  <body>
+    <div id="deck-container">
+    </div>
+  </body>
+  <script>
+    const jsonInput = {"initialViewState": {"bearing": 0, "latitude": 6.2115169, "longitude": -75.5728593, "pitch": 45, "zoom": 11}, "layers": [{"@@type": "TripsLayer", "currentTime": 500, "data": [{"coordinates": [[-75.5728593, 6.2115169], [-75.5724985, 6.2113756], [-75.5720978, 6.2122939], [-75.5717941, 6.21299], [-75.5715819, 6.2135605], [-75.5713716, 6.2141259], [-75.5711301, 6.2147704], [-75.5709802, 6.2153475], [-75.570741, 6.2170515], [-75.5700514, 6.218258], [-75.5695916, 6.2196907], [-75.5695245, 6.2200155], [-75.5694272, 6.2221616], [-75.5693466, 6.2224954], [-75.5693436, 6.2225412], [-75.5693327, 6.2226452], [-75.5693113, 6.2230566], [-75.5692919, 6.2233771], [-75.5691617, 6.2233874], [-75.5691674, 6.2235985], [-75.5677453, 6.2233914], [-75.5657456, 6.2234928], [-75.5656901, 6.2245412], [-75.5652456, 6.2246489], [-75.5648727, 6.22612], [-75.5646589, 6.226193], [-75.5647212, 6.2264394], [-75.5641291, 6.2265514], [-75.5639917, 6.2270687], [-75.5646741, 6.2277062], [-75.5647943, 6.2277774], [-75.5649929, 6.228359], [-75.5648057, 6.2287365], [-75.5645892, 6.228895], [-75.5640733, 6.2292091], [-75.5638731, 6.2302569], [-75.5644747, 6.2337814], [-75.5637436, 6.2346111], [-75.5636715, 6.2346959], [-75.5632431, 6.2352008], [-75.562924, 6.2355438], [-75.5627653, 6.2357155], [-75.5623032, 6.2362218], [-75.5621288, 6.2364142], [-75.56184, 6.2367358], [-75.5611615, 6.2374801], [-75.5608508, 6.2378279], [-75.5603512, 6.2384], [-75.5597813, 6.2390439], [-75.5591496, 6.2396871], [-75.5585474, 6.2391653], [-75.5583207, 6.2389727], [-75.5578814, 6.2385995]], "timestamps": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}], "getColor": [253, 128, 93], "getPath": "@@=coordinates", "getTimestamps": "@@=timestamps", "id": "e22b107a-1bda-4e5a-820b-984c12ed216c", "opacity": 0.8, "rounded": true, "trailLength": 600, "widthMinPixels": 5}], "mapProvider": "carto", "mapStyle": "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json", "views": [{"@@type": "MapView", "controller": true}]};
+    const tooltip = true;
+    const customLibraries = null;
+
+    const deckInstance = createDeck({
+                  container: document.getElementById('deck-container'),
+      jsonInput,
+      tooltip,
+      customLibraries
+    });
+
+  </script>
+</html>
